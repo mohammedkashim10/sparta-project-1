@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const span = document.getElementsByClassName("close")[0];
   // Getting the <span> element that closes the scoremodal (x button)
   const span2 = document.getElementsByClassName("close2")[0];
-  const title = document.getElementById('title'); // Getting the game title
+   // Getting the game title
+  const title = document.getElementById('title');
 
   // ========== Word text and color randomiser ==========
   const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
@@ -34,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Creating the function for the play button
   const playbtn = () => {
-    const testArray = board.getElementsByClassName('test');
-    for (var i = 0; i < testArray.length; i++) {
-      board.removeChild(testArray[i]);
+    const boardElementsArray = board.getElementsByClassName('board-elements');
+    for (var i = 0; i < boardElementsArray.length; i++) {
+      board.removeChild(boardElementsArray[i]);
     }
   }
 
@@ -93,12 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const select = document.createElement('h1');
     select.setAttribute('class',`inGame`);
     select.innerHTML = `select ${option}`;
-    console.log(board);
     board.appendChild(select);
     const color = document.createElement('h1');
     color.setAttribute('class',`inGame`);
     color.innerHTML = colorText;
     color.style.color = colorFill;
+    if (colorText === colorFill){
+      color.innerHTML = 'white';
+    }
     board.appendChild(color);
     const text = document.createElement('button');
     text.setAttribute('class',`inGame`);
@@ -112,20 +115,23 @@ document.addEventListener('DOMContentLoaded', () => {
     text.addEventListener('click', () => {
       // Pick random colors
       // ========== Word text and color randomiser ==========
-      const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
-      const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+      // const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+      // const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
 
       let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
       let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
 
       // ========== Task randomiser ==========
-      let optionsList = ['text', 'color'];
+      // let optionsList = ['text', 'color'];
       let option = optionsList[Math.floor(Math.random() * optionsList.length)];
 
       if (select.innerHTML == 'select text') {
         select.innerHTML = `select ${option}`;
         color.innerHTML = colorText;
         color.style.color = colorFill;
+        if (colorText === colorFill){
+          color.innerHTML = 'white';
+        }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         scoreArray.push('score');
@@ -134,6 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
         select.innerHTML = `select ${option}`;
         color.innerHTML = colorText;
         color.style.color = colorFill;
+        if (colorText === colorFill){
+          color.innerHTML = 'white';
+        }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         console.log('Incorrect');
@@ -141,20 +150,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     fill.addEventListener('click', () => {
       // ========== Word text and color randomiser ==========
-      const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
-      const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+      // const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+      // const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
 
       let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
       let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
 
       // ========== Task randomiser ==========
-      let optionsList = ['text', 'color'];
+      // let optionsList = ['text', 'color'];
       let option = optionsList[Math.floor(Math.random() * optionsList.length)];
 
       if (select.innerHTML == 'select color') {
         select.innerHTML = `select ${option}`;
         color.innerHTML = colorText;
         color.style.color = colorFill;
+        if (colorText === colorFill){
+          color.innerHTML = 'white';
+        }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         scoreArray.push('score');
@@ -163,6 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
         select.innerHTML = `select ${option}`;
         color.innerHTML = colorText;
         color.style.color = colorFill;
+        if (colorText === colorFill){
+          color.innerHTML = 'white';
+        }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         console.log('Incorrect');
