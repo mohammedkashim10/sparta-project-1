@@ -113,16 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
     board.appendChild(fill);
 
     text.addEventListener('click', () => {
-      // Pick random colors
-      // ========== Word text and color randomiser ==========
-      // const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
-      // const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+
 
       let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
       let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
 
-      // ========== Task randomiser ==========
-      // let optionsList = ['text', 'color'];
+
       let option = optionsList[Math.floor(Math.random() * optionsList.length)];
 
       if (select.innerHTML == 'select text') {
@@ -149,15 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
     fill.addEventListener('click', () => {
-      // ========== Word text and color randomiser ==========
-      // const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
-      // const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+
 
       let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
       let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
 
-      // ========== Task randomiser ==========
-      // let optionsList = ['text', 'color'];
+
       let option = optionsList[Math.floor(Math.random() * optionsList.length)];
 
       if (select.innerHTML == 'select color') {
