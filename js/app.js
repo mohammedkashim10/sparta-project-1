@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Getting the board div
+  const board = document.getElementById('board');
   // Getting the play button
   const play = document.getElementById('play');
   // Getting the instructions button
@@ -12,61 +14,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const span = document.getElementsByClassName("close")[0];
   // Getting the <span> element that closes the scoremodal (x button)
   const span2 = document.getElementsByClassName("close2")[0];
+  const title = document.getElementById('title'); // Getting the game title
+
+  // ========== Word text and color randomiser ==========
+  const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+  const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+
+  let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
+  let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
+
+  // ========== Task randomiser ==========
+  let optionsList = ['text', 'color'];
+  let option = optionsList[Math.floor(Math.random() * optionsList.length)];
+
+  // ========== Array to hold score ==========
+  const scoreArray = [];
+
+
 
   // Creating the function for the play button
   const playbtn = () => {
-    const title = document.getElementById('title'); // Getting the game title
-    title.style.display = 'none'; // Hides the title
-    play.style.display = 'none'; // Hides the play button
-    instructions.style.display = 'none'; // Hides the instructions button
-
-    // const time = document.createElement('h4');
-    // time.innerHTML = 'timer goes here'; // ========== TIMER HERE ==========
-    // document.body.appendChild(time);
-    function timer() {
-      // const timeout = setTimeout(function(){document.body.style.display = 'none';}, 5000);
-      const timerEl = document.getElementById('timer');
-      timerEl.style.display = 'block';
-      let currentTime = 5;
-      var interval = setInterval(countdown,1000)
-      function countdown(){
-        timerEl.innerHTML = currentTime;
-        currentTime--;
-        if (currentTime === -1) {
-          clearInterval(interval);
-          end();
-          const playAgain = document.createElement('button');
-          playAgain.innerHTML = 'Play Again';
-          document.body.appendChild(playAgain);
-          playAgain.addEventListener('click', (event) => {
-            select.style.display = 'none';
-            color.style.display = 'none';
-            text.style.display = 'none';
-            fill.style.display = 'none';
-            playAgain.style.display = 'none';
-            playbtn();
-          })
-        }
-      }
-      // const time = document.createElement('p');
-      // document.body.appendChild(timerEl);
+    const testArray = board.getElementsByClassName('test');
+    for (var i = 0; i < testArray.length; i++) {
+      board.removeChild(testArray[i]);
     }
-    timer();
-    const select = document.createElement('h1'); // <h1 id="select"></h1>
-    select.innerHTML = 'select -text/color-';
-    document.body.appendChild(select);
-    const color = document.createElement('h1'); // <h1 id="color"></h1>
-    color.innerHTML = 'colored word appears here';
-    document.body.appendChild(color);
-    const text = document.createElement('button'); // <button id="text"></button>
-    text.innerHTML = 'corresponds to text of colored word';
-    document.body.appendChild(text);
-    const fill = document.createElement('button'); // <button id="fill"></button>
-    fill.innerHTML = 'corresponds to color of colored word';
-    document.body.appendChild(fill);
-
   }
 
+  const timer = () => {
+    const timerEl = document.getElementById('timer');
+    timerEl.style.display = 'block';
+    let currentTime = 20;
+    var interval = setInterval(countdown,1000)
+    function countdown(){
+      timerEl.innerHTML = currentTime;
+      currentTime--;
+      if (currentTime === -1) {
+        clearInterval(interval);
+        end();
+        const playAgain = document.createElement('button');
+        playAgain.innerHTML = 'Play Again';
+        document.body.appendChild(playAgain);
+        playAgain.addEventListener('click', (event) => {
+          window.location = window.location;
+        })
+      }
+    }
+  }
 
   // ========== END GAME MODAL ==========
   const end = () => {
@@ -75,12 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     span2.addEventListener('click', (event) => {
       modal2.style.display = "none";
     })
-    // Closing the modal when click anywhere outside of it
-    window.addEventListener('click', (event) => {
-      if (event.target == modal2) {
-        modal2.style.display = "none";
-      }
-    })
+    const finalScore = document.getElementById('finalScore');
+    finalScore.innerHTML = `You scored ${scoreArray.length}!`;
   }
 
 
@@ -100,9 +89,92 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  const setElements = () => {
+    const select = document.createElement('h1');
+    select.setAttribute('class',`inGame`);
+    select.innerHTML = `select ${option}`;
+    console.log(board);
+    board.appendChild(select);
+    const color = document.createElement('h1');
+    color.setAttribute('class',`inGame`);
+    color.innerHTML = colorText;
+    color.style.color = colorFill;
+    board.appendChild(color);
+    const text = document.createElement('button');
+    text.setAttribute('class',`inGame`);
+    text.innerHTML = color.innerHTML;
+    board.appendChild(text);
+    const fill = document.createElement('button');
+    fill.setAttribute('class',`inGame`);
+    fill.innerHTML = color.style.color;
+    board.appendChild(fill);
+
+    text.addEventListener('click', () => {
+      // Pick random colors
+      // ========== Word text and color randomiser ==========
+      const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+      const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+
+      let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
+      let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
+
+      // ========== Task randomiser ==========
+      let optionsList = ['text', 'color'];
+      let option = optionsList[Math.floor(Math.random() * optionsList.length)];
+
+      if (select.innerHTML == 'select text') {
+        select.innerHTML = `select ${option}`;
+        color.innerHTML = colorText;
+        color.style.color = colorFill;
+        text.innerHTML = color.innerHTML;
+        fill.innerHTML = color.style.color;
+        scoreArray.push('score');
+        console.log('Correct');
+      } else if (select.innerHTML == 'select color') {
+        select.innerHTML = `select ${option}`;
+        color.innerHTML = colorText;
+        color.style.color = colorFill;
+        text.innerHTML = color.innerHTML;
+        fill.innerHTML = color.style.color;
+        console.log('Incorrect');
+      }
+    })
+    fill.addEventListener('click', () => {
+      // ========== Word text and color randomiser ==========
+      const colorTextList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+      const colorFillList = ['red', 'blue', 'green', 'pink', 'yellow', 'orange', 'grey', 'purple', 'black', 'cyan'];
+
+      let colorText = colorTextList[Math.floor(Math.random() * colorTextList.length)];
+      let colorFill = colorFillList[Math.floor(Math.random() * colorFillList.length)];
+
+      // ========== Task randomiser ==========
+      let optionsList = ['text', 'color'];
+      let option = optionsList[Math.floor(Math.random() * optionsList.length)];
+
+      if (select.innerHTML == 'select color') {
+        select.innerHTML = `select ${option}`;
+        color.innerHTML = colorText;
+        color.style.color = colorFill;
+        text.innerHTML = color.innerHTML;
+        fill.innerHTML = color.style.color;
+        scoreArray.push('score');
+        console.log('Correct');
+      } else if (select.innerHTML == 'select text') {
+        select.innerHTML = `select ${option}`;
+        color.innerHTML = colorText;
+        color.style.color = colorFill;
+        text.innerHTML = color.innerHTML;
+        fill.innerHTML = color.style.color;
+        console.log('Incorrect');
+      }
+    })
+  }
+
   // Adding a click event to the play button to run the playbtn function
   play.addEventListener('click', (event) => {
+    timer();
     playbtn();
+    setElements();
   })
 
 
