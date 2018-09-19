@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Game</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/app.js" charset="utf-8"></script>
+</head>
+<body>
+  <!-- Divs for when the timer and score are added to the page -->
+  <div id="timer"></div>
+  <div id="liveScore"></div>
+
+  <!-- Div containing elements that need be removed upon clicking the play button -->
+  <div id="board">
+    <h1 class="board-elements" id="title">
+      <!-- Spans for the letters of the title to allow for individual edits -->
+      <span id="first">C</span>
+      <span id="second">O</span>
+      <span id="third">L</span>
+      <span id="fourth">O</span>
+      <span id="fifth">U</span>
+      <span id="sixth">R</span>
+      <span id="seventh">A</span>
+      <span id="eighth">M</span>
+      <span id="ninth">A</span>
+    </h1>
+    <br>
+    <br>
+    <br>
+    <button class="board-elements" id="play">Play</button>
+    <button class="board-elements" id="instruct">Instructions</button>
+  </div>
+
+  <!-- Modal for when instructions button is clicked -->
+  <div id="instructModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span> <!-- close button displayed as x -->
+      <p>The name of a colour will appear and it will be filled in a different colour. You will be asked to select either the word itself or the colour of the word. Try to rack up as many points as you can in 20 seconds!</p>
+      <p>Example:</p>
+      <div class="eg">
+        <p>Select the color</p>
+        <p id="example">RED</p>
+      </div>
+      <p>Here, the answer would be 'blue', since the actual colour of the word is blue. Similarly, if the task was to 'Select the text', the answer would be 'red'.</p>
+    </div>
+  </div>
+
+  <!-- Modal for when the game is finished -->
+  <div id="scoreModal" class="modal2">
+    <!-- Modal content -->
+    <div class="modal-content2">
+      <span class="close2">&times;</span>
+      <p id="finalScore"></p>
+    </div>
+  </div>
+</body>
+</html>

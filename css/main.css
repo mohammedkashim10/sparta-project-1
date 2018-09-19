@@ -1,0 +1,287 @@
+body {
+  font-family: sans-serif;
+  justify-content: center;
+  text-align: center;
+	height: 90vh; /* Viewport height - height relative to browser height */
+	color: rgb(255, 255, 255);
+	background: linear-gradient(-45deg, rgb(228, 151, 127), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
+	background-size: 400% 400%; /* Background is bigger than the browser, the browser will move on the background 'canvas' */
+	animation: Gradient 15s ease infinite; /* Time of animation; smooth transition as opposed to rigid steps; goes on forever */
+}
+
+@keyframes Gradient {
+	0% { /* At 0% of time elapsed, position the background as follows */
+		background-position: 0% 50% /* 0% in the x-direction, 50% in the y-direction */
+	}
+	50% { /* 50% of time elapsed */
+		background-position: 100% 50% /* 100% in the x-direction, 50% in the y-direction */
+	}
+	100% { /* 100% of time elapsed */
+		background-position: 0% 50% /* 0% in the x-direction, 50% in the y-direction */
+	}
+}
+
+#board {
+  margin-top: -50px;
+}
+
+#title {
+  font-size: 80px;
+  margin-top: 100px;
+}
+
+#first {
+  color: red;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#second {
+  color: orange;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#third {
+  color: yellow;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#fourth {
+  color: green;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#fifth {
+  color: blue;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#sixth {
+  color: indigo;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#seventh {
+  color: violet;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#eighth {
+  color: red;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#ninth {
+  color: orange;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+#play {
+  font-size: 40px;
+  border: solid 2px black;
+  border-radius: 10px; /* Curved corners */
+  margin-right: 30px;
+  width: 250px;
+}
+
+#instruct {
+  font-size: 40px;
+  border: solid 2px black;
+  border-radius: 10px;
+  width: 250px;
+}
+
+/* Styling the modal background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0; /* Puts it to the left-most position on the screen */
+  top: 0; /* Puts it to the upper-most position on the screen */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgb(254, 254, 254);
+  margin: 15% auto; /* 15% from the top and centered */
+  margin-top: 140px;
+  padding: 20px;
+  border: 1px solid rgb(136, 136, 136);
+  width: 80%;
+  height: 310px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.modal-content p {
+  color: black;
+}
+
+.eg {
+  font-size: 30px;
+}
+
+#example {
+  color: blue;
+}
+
+/* The Close Button */
+.close {
+  color: rgb(170, 170, 170);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Hover and focus styling */
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#timer {
+  display: none; /* Initially hiding the timer */
+  margin-left: -1050px;
+  font-size: 40px;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+}
+
+#liveScore {
+  display: none; /* Initially hiding the timer */
+  margin-top: -45px;
+  margin-right: -1060px;
+  font-size: 40px;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+}
+
+#task {
+  color: white;
+  font-size: 50px;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+}
+
+#coloring {
+  font-size: 50px;
+  text-shadow: /* Outline of the text */
+  -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+}
+
+#textbtn {
+  font-size: 30px;
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 150px;
+  border: solid 1px black;
+}
+
+#colorbtn {
+  font-size: 30px;
+  border-radius: 10px;
+  width: 150px;
+  border: solid 1px black;
+}
+
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0; /* Puts it to the left-most position on the screen */
+  top: 0; /* Puts it to the upper-most position on the screen */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content2 {
+  background-color: rgb(254, 254, 254);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid rgb(136, 136, 136);
+  width: 80%;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.modal-content2 p {
+  color: black;
+}
+
+.close2 {
+  color: rgb(170, 170, 170);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Hover and focus styling */
+.close2:hover,
+.close2:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#homebtn {
+  font-size: 30px;
+  border-radius: 10px;
+  width: 200px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
