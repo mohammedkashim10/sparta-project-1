@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function playBackground() {
     x.play();
   }
-  for (var i = 0; i < 10; i++) {
-    playBackground();
-  }
+  // for (var i = 0; i < 10; i++) {
+  //   playBackground();
+  // }
 
   var y = document.getElementById('correctSound');
   function playCorrect() {
@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timer();
     playbtn();
     setElements();
+    playBackground();
   })
 
   // Adding a click event to the instructions button to run the instruct function
