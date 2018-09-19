@@ -9,12 +9,14 @@
   <script src="js/app.js" charset="utf-8"></script>
 </head>
 <body>
-  <!-- Div for when timer is added to the page -->
+  <!-- Divs for when the timer and score are added to the page -->
   <div id="timer"></div>
+  <div id="liveScore"></div>
 
   <!-- Div containing elements that need be removed upon clicking the play button -->
   <div id="board">
     <h1 class="board-elements" id="title">
+      <!-- Spans for the letters of the title to allow for individual edits -->
       <span id="first">C</span>
       <span id="second">O</span>
       <span id="third">L</span>
@@ -36,7 +38,7 @@
   <div id="instructModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <span class="close">&times;</span> <!-- close button displayed as x -->
       <p>The name of a colour will appear and it will be filled in a different colour. You will be asked to select either the word itself or the colour of the word. Try to rack up as many points as you can in 20 seconds!</p>
       <p>Example:</p>
       <div class="eg">

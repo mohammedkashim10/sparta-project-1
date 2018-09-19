@@ -61,21 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Creating the function for the timer
   const timer = () => {
     const timerEl = document.getElementById('timer');
-    timerEl.innerHTML = 20; // Setting an innerHTML at 20 and starting the countdown from 19 so there is no delay of waiting for the element to appear when the function is called
+    timerEl.innerHTML = 'Time remaining: 20s'; // Setting an innerHTML at 20 and starting the countdown from 19 so there is no delay of waiting for the element to appear when the function is called
     timerEl.style.display = 'block';
     let currentTime = 19;
     var interval = setInterval(countdown,1000)
     function countdown(){
-      timerEl.innerHTML = currentTime;
+      timerEl.innerHTML = `Time remaining: ${currentTime}s`;
       currentTime--;
       if (currentTime === -1) {
         clearInterval(interval);
         end();
-        const playAgain = document.createElement('button');
-        playAgain.innerHTML = 'Play again';
-        playAgain.setAttribute('id', 'playagain');
-        document.body.appendChild(playAgain);
-        playAgain.addEventListener('click', (event) => {
+        const homebtn = document.createElement('button');
+        homebtn.innerHTML = 'Home';
+        homebtn.setAttribute('id', 'homebtn');
+        document.body.appendChild(homebtn);
+        homebtn.addEventListener('click', (event) => {
           window.location = window.location;
         })
       }
@@ -85,13 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Creating the elements to play the game
   const setElements = () => {
     const select = document.createElement('h1');
-    select.setAttribute('class',`inGame`);
-    select.setAttribute('id',`task`);
+    select.setAttribute('class','inGame');
+    select.setAttribute('id','task');
     select.innerHTML = `Select ${option}`;
     board.appendChild(select);
     const color = document.createElement('h1');
-    color.setAttribute('class',`inGame`);
-    color.setAttribute('id',`coloring`);
+    color.setAttribute('class','inGame');
+    color.setAttribute('id','coloring');
     color.innerHTML = colorText;
     color.style.color = colorFill;
     if (colorText === colorFill) {
@@ -99,15 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
     } // The if statement prevents the text and colour being the same by making the text 'white' (the colour white is not in the array of colours)
     board.appendChild(color);
     const text = document.createElement('button');
-    text.setAttribute('class',`inGame`);
-    text.setAttribute('id',`textbtn`);
+    text.setAttribute('class','inGame');
+    text.setAttribute('id','textbtn');
     text.innerHTML = color.innerHTML;
     board.appendChild(text);
     const fill = document.createElement('button');
-    fill.setAttribute('class',`inGame`);
-    fill.setAttribute('id',`colorbtn`);
+    fill.setAttribute('class','inGame');
+    fill.setAttribute('id','colorbtn');
     fill.innerHTML = color.style.color;
     board.appendChild(fill);
+    const liveScore = document.getElementById('liveScore');
+    liveScore.innerHTML = `Current score: ${scoreArray.length}`;
+    liveScore.style.display = 'block';
 
     // Click event for when the button corresponding to the word's text is clicked
     text.addEventListener('click', () => {
@@ -116,26 +119,25 @@ document.addEventListener('DOMContentLoaded', () => {
       let option = optionsList[Math.floor(Math.random() * optionsList.length)];
 
       if (select.innerHTML == 'Select text') {
-        select.innerHTML = `Select ${option}`;
-        color.innerHTML = colorText;
-        color.style.color = colorFill;
+        select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
+        color.innerHTML = colorText; // Creates a new word
+        color.style.color = colorFill; // Creates a new colour
         if (colorText === colorFill) {
           color.innerHTML = 'white';
-        }
+        } // The if statement prevents the text and colour being the same by making the text 'white' (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
-        scoreArray.push('score');
-        console.log(scoreArray.length);
+        scoreArray.push('score'); // Puts a component in the array
+        liveScore.innerHTML = `Current score: ${scoreArray.length}`; // Score appears as the length of the array i.e. number of components (which increases with every correct answer)
       } else if (select.innerHTML == 'Select color') {
-        select.innerHTML = `Select ${option}`;
-        color.innerHTML = colorText;
-        color.style.color = colorFill;
+        select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
+        color.innerHTML = colorText; // Creates a new word
+        color.style.color = colorFill; // Creates a new colour
         if (colorText === colorFill) {
           color.innerHTML = 'white';
-        }
+        } // The if statement prevents the text and colour being the same by making the text 'white' (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
-        console.log('Incorrect');
       }
     })
     // Click event for when the button corresponding to the word's colour is clicked
@@ -154,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         scoreArray.push('score');
-        console.log(scoreArray.length);
+        liveScore.innerHTML = `Current score: ${scoreArray.length}`;
       } else if (select.innerHTML == 'Select text') {
         select.innerHTML = `Select ${option}`;
         color.innerHTML = colorText;
@@ -164,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
-        console.log('Incorrect');
       }
     })
   }
