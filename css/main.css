@@ -4,20 +4,20 @@ body {
   text-align: center;
 	height: 90vh; /* Viewport height - height relative to browser height */
 	color: rgb(255, 255, 255);
-	background: linear-gradient(-45deg, rgb(228, 151, 127), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
+	background: linear-gradient(-45deg, rgb(231, 48, 48), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
 	background-size: 400% 400%; /* Background is bigger than the browser, the browser will move on the background 'canvas' */
 	animation: Gradient 15s ease infinite; /* Time of animation; smooth transition as opposed to rigid steps; goes on forever */
 }
 
 @keyframes Gradient {
 	0% { /* At 0% of time elapsed, position the background as follows */
-		background-position: 0% 50% /* 0% in the x-direction, 50% in the y-direction */
+		background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
 	}
 	50% { /* 50% of time elapsed */
 		background-position: 100% 50% /* 100% in the x-direction, 50% in the y-direction */
 	}
 	100% { /* 100% of time elapsed */
-		background-position: 0% 50% /* 0% in the x-direction, 50% in the y-direction */
+		background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
 	}
 }
 
@@ -192,9 +192,9 @@ body {
 }
 
 #liveScore {
-  display: none; /* Initially hiding the timer */
-  margin-top: -45px;
+  display: none; /* Initially hiding the score */
   margin-right: -1060px;
+  margin-top: -46px;
   font-size: 40px;
   text-shadow: /* Outline of the text */
   -1px -1px 0 black,
@@ -227,14 +227,14 @@ body {
   border-radius: 10px;
   margin-right: 20px;
   width: 150px;
-  border: solid 1px black;
+  border: solid 2px black;
 }
 
 #colorbtn {
   font-size: 30px;
   border-radius: 10px;
   width: 150px;
-  border: solid 1px black;
+  border: solid 2px black;
 }
 
 .modal2 {
@@ -282,6 +282,6 @@ body {
   font-size: 30px;
   border-radius: 10px;
   width: 200px;
-  border: solid 1px black;
+  border: solid 2px black;
   margin-top: 20px;
 }

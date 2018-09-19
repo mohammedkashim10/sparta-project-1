@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+  var x = document.getElementById('backgroundSound');
+  function playBackground() {
+    x.play();
+  }
+  for (var i = 0; i < 10; i++) {
+    playBackground();
+  }
+
+  var y = document.getElementById('correctSound');
+  function playCorrect() {
+    y.play();
+  }
+
+  var z = document.getElementById('incorrectSound');
+  function playIncorrect() {
+    z.play();
+  }
+
+
   // Getting the different elements from html
   const board = document.getElementById('board');
   const play = document.getElementById('play');
@@ -129,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fill.innerHTML = color.style.color;
         scoreArray.push('score'); // Puts a component in the array
         liveScore.innerHTML = `Current score: ${scoreArray.length}`; // Score appears as the length of the array i.e. number of components (which increases with every correct answer)
+        playCorrect();
       } else if (select.innerHTML == 'Select color') {
         select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
         color.innerHTML = colorText; // Creates a new word
@@ -138,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } // The if statement prevents the text and colour being the same by making the text 'white' (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
+        playIncorrect();
       }
     })
     // Click event for when the button corresponding to the word's colour is clicked
@@ -157,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fill.innerHTML = color.style.color;
         scoreArray.push('score');
         liveScore.innerHTML = `Current score: ${scoreArray.length}`;
+        playCorrect();
       } else if (select.innerHTML == 'Select text') {
         select.innerHTML = `Select ${option}`;
         color.innerHTML = colorText;
@@ -166,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
+        playIncorrect();
       }
     })
   }
