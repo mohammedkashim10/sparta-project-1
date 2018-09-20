@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Setting up the sound functions
-  myAudio = new Audio('sounds/background.wav');
-  myAudio.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
+  // Background sound playing constantly
+  backgroundSound = new Audio('sounds/background.wav');
+  backgroundSound.addEventListener('ended', function() {
+    backgroundSound.currentTime = 0;
+    backgroundSound.play();
   }, false);
-  myAudio.play();
+  backgroundSound.play();
 
   var x = document.getElementById('correctSound');
   function playCorrect() {
