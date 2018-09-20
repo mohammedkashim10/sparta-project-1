@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Setting up the sound functions
-  var w = document.getElementById('backgroundSound');
-  function playBackground() {
-    w.play();
-  }
-
-  var w2 = document.getElementById('backgroundSound');
-  function pauseBackground() {
-    w2.pause();
-  }
+  myAudio = new Audio('sounds/background.wav');
+  myAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  }, false);
+  myAudio.play();
 
   var x = document.getElementById('correctSound');
   function playCorrect() {
@@ -206,7 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
     timer();
     playbtn();
     setElements();
-    playBackground(); // Background sound upon clicking play
   })
 
   // Adding a click event to the instructions button to run the instruct function

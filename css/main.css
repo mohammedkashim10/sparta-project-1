@@ -2,23 +2,23 @@ body {
   font-family: sans-serif;
   justify-content: center;
   text-align: center;
-	height: 90vh; /* Viewport height - height relative to browser height */
-	color: rgb(255, 255, 255);
-	background: linear-gradient(-45deg, rgb(231, 48, 48), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
-	background-size: 400% 400%; /* Background is bigger than the browser, the browser will move on the background 'canvas' */
-	animation: Gradient 15s ease infinite; /* Time of animation; smooth transition as opposed to rigid steps; goes on forever */
+  height: 90vh; /* Viewport height - height relative to browser height */
+  color: rgb(255, 255, 255);
+  background: linear-gradient(-45deg, rgb(231, 48, 48), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
+  background-size: 400% 400%; /* Background is bigger than the browser, the browser will move on the background 'canvas' */
+  animation: Gradient 15s ease infinite; /* Time of animation; smooth transition as opposed to rigid steps; goes on forever */
 }
 
 @keyframes Gradient {
-	0% { /* At 0% of time elapsed, position the background as follows */
-		background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
-	}
-	50% { /* 50% of time elapsed */
-		background-position: 100% 50% /* 100% in the x-direction, 50% in the y-direction */
-	}
-	100% { /* 100% of time elapsed */
-		background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
-	}
+  0% { /* At 0% of time elapsed, position the background as follows */
+    background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
+  }
+  50% { /* 50% of time elapsed */
+    background-position: 100% 50% /* 100% in the x-direction, 50% in the y-direction */
+  }
+  100% { /* 100% of time elapsed */
+    background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
+  }
 }
 
 #board {
