@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-  var x = document.getElementById('backgroundSound');
+  // Setting up the sound functions
+  var w = document.getElementById('backgroundSound');
   function playBackground() {
+    w.play();
+  }
+
+  var w2 = document.getElementById('backgroundSound');
+  function pauseBackground() {
+    w2.pause();
+  }
+
+  var x = document.getElementById('correctSound');
+  function playCorrect() {
     x.play();
   }
-  // for (var i = 0; i < 10; i++) {
-  //   playBackground();
-  // }
 
-  var y = document.getElementById('correctSound');
-  function playCorrect() {
+  var y = document.getElementById('incorrectSound');
+  function playIncorrect() {
     y.play();
   }
 
-  var z = document.getElementById('incorrectSound');
-  function playIncorrect() {
+  var z = document.getElementById('complete');
+  function playComplete() {
     z.play();
   }
-
 
   // Getting the different elements from html
   const board = document.getElementById('board');
@@ -75,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     const finalScore = document.getElementById('finalScore');
     finalScore.innerHTML = `You scored ${scoreArray.length}!`;
+    playComplete();
   }
 
   // Creating the function for the timer
@@ -128,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fill.innerHTML = color.style.color;
     board.appendChild(fill);
     const liveScore = document.getElementById('liveScore');
-    liveScore.innerHTML = `Current score: ${scoreArray.length}`;
+    liveScore.innerHTML = `Score: ${scoreArray.length}`;
     liveScore.style.display = 'block';
 
     // Click event for when the button corresponding to the word's text is clicked
@@ -147,8 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         scoreArray.push('score'); // Puts a component in the array
-        liveScore.innerHTML = `Current score: ${scoreArray.length}`; // Score appears as the length of the array i.e. number of components (which increases with every correct answer)
-        playCorrect();
+        liveScore.innerHTML = `Score: ${scoreArray.length}`; // Score appears as the length of the array i.e. number of components (which increases with every correct answer)
+        playCorrect(); // 'Correct answer' sound
       } else if (select.innerHTML == 'Select color') {
         select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
         color.innerHTML = colorText; // Creates a new word
@@ -158,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } // The if statement prevents the text and colour being the same by making the text 'white' (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
-        playIncorrect();
+        playIncorrect(); // 'Incorrect answer' sound
       }
     })
     // Click event for when the button corresponding to the word's colour is clicked
@@ -177,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         scoreArray.push('score');
-        liveScore.innerHTML = `Current score: ${scoreArray.length}`;
+        liveScore.innerHTML = `Score: ${scoreArray.length}`;
         playCorrect();
       } else if (select.innerHTML == 'Select text') {
         select.innerHTML = `Select ${option}`;
@@ -198,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timer();
     playbtn();
     setElements();
-    playBackground();
+    playBackground(); // Background sound upon clicking play
   })
 
   // Adding a click event to the instructions button to run the instruct function

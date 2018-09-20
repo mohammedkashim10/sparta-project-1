@@ -111,19 +111,40 @@ body {
   1px 1px 0 white;
 }
 
+button:focus {outline:0;}
+
 #play {
   font-size: 40px;
   border: solid 2px black;
   border-radius: 10px; /* Curved corners */
   margin-right: 30px;
   width: 250px;
+  box-shadow: 0 8px rgb(50, 50, 50);
 }
+
+#play:hover {background-color: rgb(205, 205, 205)}
+
+#play:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(0, 0, 0);
+  transform: translateY(4px);
+}
+
 
 #instruct {
   font-size: 40px;
   border: solid 2px black;
   border-radius: 10px;
   width: 250px;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#instruct:hover {background-color: rgb(205, 205, 205)}
+
+#instruct:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(0, 0, 0);
+  transform: translateY(4px);
 }
 
 /* Styling the modal background */
@@ -193,7 +214,7 @@ body {
 
 #liveScore {
   display: none; /* Initially hiding the score */
-  margin-right: -1060px;
+  margin-left: 1250px;
   margin-top: -46px;
   font-size: 40px;
   text-shadow: /* Outline of the text */
@@ -228,6 +249,15 @@ body {
   margin-right: 20px;
   width: 150px;
   border: solid 2px black;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#textbtn:hover {background-color: rgb(205, 205, 205)}
+
+#textbtn:active {
+  background-color: rrgb(205, 205, 205);
+  box-shadow: 0 4px rgb(0, 0, 0);
+  transform: translateY(4px);
 }
 
 #colorbtn {
@@ -235,6 +265,15 @@ body {
   border-radius: 10px;
   width: 150px;
   border: solid 2px black;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#colorbtn:hover {background-color: rgb(205, 205, 205)}
+
+#colorbtn:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(0, 0, 0);
+  transform: translateY(4px);
 }
 
 .modal2 {
@@ -284,4 +323,13 @@ body {
   width: 200px;
   border: solid 2px black;
   margin-top: 20px;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#homebtn:hover {background-color: rgb(205, 205, 205)}
+
+#homebtn:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(0, 0, 0);
+  transform: translateY(4px);
 }
