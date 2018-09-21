@@ -9,7 +9,13 @@
   <script src="js/app.js" charset="utf-8"></script>
 </head>
 <body>
-  <!-- Divs for when the timer and score are added to the page -->
+  <!-- Adding the sounds. Embed tag plays the background sound immediately, while the audio tags will be called when required -->
+  <embed src="sounds/background.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
+  <audio src="sounds/correctping.mp3" type="audio/mp3" id="correctSound"></audio>
+  <audio src="sounds/incorrectbuzz.mp3" type="audio/mp3" id="incorrectSound"></audio>
+  <audio src="sounds/levelcomplete.mp3" type="audio/mp3" id="complete"></audio>
+
+  <!-- Divs for when the timer and scores are added to the page -->
   <div id="timer"></div>
   <div id="liveScore"></div>
 
@@ -43,7 +49,7 @@
       <p>Example:</p>
       <div class="eg">
         <p>Select the color</p>
-        <p id="example">RED</p>
+        <p id="example">red</p>
       </div>
       <p>Here, the answer would be 'blue', since the actual colour of the word is blue. Similarly, if the task was to 'Select the text', the answer would be 'red'.</p>
     </div>

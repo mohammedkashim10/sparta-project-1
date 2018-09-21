@@ -2,23 +2,23 @@ body {
   font-family: sans-serif;
   justify-content: center;
   text-align: center;
-	height: 90vh; /* Viewport height - height relative to browser height */
-	color: rgb(255, 255, 255);
-	background: linear-gradient(-45deg, rgb(228, 151, 127), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
-	background-size: 400% 400%; /* Background is bigger than the browser, the browser will move on the background 'canvas' */
-	animation: Gradient 15s ease infinite; /* Time of animation; smooth transition as opposed to rigid steps; goes on forever */
+  height: 90vh; /* Viewport height - height relative to browser height */
+  color: rgb(255, 255, 255);
+  background: linear-gradient(-45deg, rgb(231, 48, 48), rgb(240, 164, 193), rgb(35, 166, 213), rgb(35, 213, 171));
+  background-size: 400% 400%; /* Background is bigger than the browser, the browser will move on the background 'canvas' */
+  animation: Gradient 15s ease infinite; /* Time of animation; smooth transition as opposed to rigid steps; goes on forever */
 }
 
 @keyframes Gradient {
-	0% { /* At 0% of time elapsed, position the background as follows */
-		background-position: 0% 50% /* 0% in the x-direction, 50% in the y-direction */
-	}
-	50% { /* 50% of time elapsed */
-		background-position: 100% 50% /* 100% in the x-direction, 50% in the y-direction */
-	}
-	100% { /* 100% of time elapsed */
-		background-position: 0% 50% /* 0% in the x-direction, 50% in the y-direction */
-	}
+  0% { /* At 0% of time elapsed, position the background as follows */
+    background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
+  }
+  50% { /* 50% of time elapsed */
+    background-position: 100% 50% /* 100% in the x-direction, 50% in the y-direction */
+  }
+  100% { /* 100% of time elapsed */
+    background-position: 0% 0% /* 0% in the x-direction, 50% in the y-direction */
+  }
 }
 
 #board {
@@ -111,19 +111,42 @@ body {
   1px 1px 0 white;
 }
 
+button:focus {
+  outline:0;
+}
+
 #play {
   font-size: 40px;
   border: solid 2px black;
   border-radius: 10px; /* Curved corners */
   margin-right: 30px;
   width: 250px;
+  box-shadow: 0 8px rgb(50, 50, 50);
 }
+
+#play:hover {background-color: rgb(205, 205, 205)}
+
+#play:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(50, 50, 50);
+  transform: translateY(4px);
+}
+
 
 #instruct {
   font-size: 40px;
   border: solid 2px black;
   border-radius: 10px;
   width: 250px;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#instruct:hover {background-color: rgb(205, 205, 205)}
+
+#instruct:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(50, 50, 50);
+  transform: translateY(4px);
 }
 
 /* Styling the modal background */
@@ -145,7 +168,7 @@ body {
   margin: 15% auto; /* 15% from the top and centered */
   margin-top: 140px;
   padding: 20px;
-  border: 1px solid rgb(136, 136, 136);
+  border: 2px solid rgb(0, 0, 0);
   width: 80%;
   height: 310px;
   border-radius: 20px;
@@ -192,9 +215,9 @@ body {
 }
 
 #liveScore {
-  display: none; /* Initially hiding the timer */
-  margin-top: -45px;
-  margin-right: -1060px;
+  display: none; /* Initially hiding the score */
+  margin-left: 1250px;
+  margin-top: -46px;
   font-size: 40px;
   text-shadow: /* Outline of the text */
   -1px -1px 0 black,
@@ -227,14 +250,32 @@ body {
   border-radius: 10px;
   margin-right: 20px;
   width: 150px;
-  border: solid 1px black;
+  border: solid 2px black;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#textbtn:hover {background-color: rgb(205, 205, 205)}
+
+#textbtn:active {
+  background-color: rrgb(205, 205, 205);
+  box-shadow: 0 4px rgb(50, 50, 50);
+  transform: translateY(4px);
 }
 
 #colorbtn {
   font-size: 30px;
   border-radius: 10px;
   width: 150px;
-  border: solid 1px black;
+  border: solid 2px black;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#colorbtn:hover {background-color: rgb(205, 205, 205)}
+
+#colorbtn:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(50, 50, 50);
+  transform: translateY(4px);
 }
 
 .modal2 {
@@ -253,7 +294,7 @@ body {
   background-color: rgb(254, 254, 254);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid rgb(136, 136, 136);
+  border: 2px solid rgb(0, 0, 0);
   width: 80%;
   border-radius: 20px;
   font-size: 20px;
@@ -282,6 +323,15 @@ body {
   font-size: 30px;
   border-radius: 10px;
   width: 200px;
-  border: solid 1px black;
+  border: solid 2px black;
   margin-top: 20px;
+  box-shadow: 0 8px rgb(50, 50, 50);
+}
+
+#homebtn:hover {background-color: rgb(205, 205, 205)}
+
+#homebtn:active {
+  background-color: rgb(205, 205, 205);
+  box-shadow: 0 4px rgb(50, 50, 50);
+  transform: translateY(4px);
 }
