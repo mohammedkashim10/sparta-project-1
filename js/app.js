@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Background sound playing constantly
-  backgroundSound = new Audio('sounds/background.wav');
-  backgroundSound.addEventListener('ended', function() {
+  const backgroundSound = new Audio('sounds/background.mp3');
+  backgroundSound.addEventListener('ended', (event) => {
     backgroundSound.currentTime = 0;
     backgroundSound.play();
   }, false);
   backgroundSound.play();
 
+  // Getting the correct, incorrect, and time up sounds
   var x = document.getElementById('correctSound');
   function playCorrect() {
     x.play();
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     const finalScore = document.getElementById('finalScore');
     finalScore.innerHTML = `You scored ${scoreArray.length}!`;
-    playComplete();
+    playComplete(); // Play game complete sound
   }
 
   // Creating the function for the timer
@@ -93,14 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
       timerEl.innerHTML = `Time remaining: ${currentTime}s`;
       currentTime--;
       if (currentTime === -1) {
-        clearInterval(interval);
-        end();
+        clearInterval(interval); // Stop the countdown when time runs out
+        end(); // End function displays the modal
         const homebtn = document.createElement('button');
         homebtn.innerHTML = 'Home';
         homebtn.setAttribute('id', 'homebtn');
         document.body.appendChild(homebtn);
         homebtn.addEventListener('click', (event) => {
-          window.location = window.location;
+          window.location = window.location; // Reloads the window without refreshing the browser
         })
       }
     }
@@ -173,27 +174,27 @@ document.addEventListener('DOMContentLoaded', () => {
       let option = optionsList[Math.floor(Math.random() * optionsList.length)];
 
       if (select.innerHTML == 'Select color') {
-        select.innerHTML = `Select ${option}`;
-        color.innerHTML = colorText;
-        color.style.color = colorFill;
+        select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
+        color.innerHTML = colorText; // Creates a new word
+        color.style.color = colorFill; // Creates a new colour
         if (colorText === colorFill) {
           color.innerHTML = 'white';
         }
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
-        scoreArray.push('score');
-        liveScore.innerHTML = `Score: ${scoreArray.length}`;
-        playCorrect();
+        scoreArray.push('score'); // Puts a component in the array
+        liveScore.innerHTML = `Score: ${scoreArray.length}`; // Score appears as the length of the array i.e. number of components (which increases with every correct answer)
+        playCorrect(); // 'Correct answer' sound
       } else if (select.innerHTML == 'Select text') {
-        select.innerHTML = `Select ${option}`;
-        color.innerHTML = colorText;
-        color.style.color = colorFill;
+        select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
+        color.innerHTML = colorText; // Creates a new word
+        color.style.color = colorFill; // Creates a new colour
         if (colorText === colorFill) {
           color.innerHTML = 'white';
-        }
+        } // The if statement prevents the text and colour being the same by making the text 'white' (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
-        playIncorrect();
+        playIncorrect(); // 'Incorrect answer' sound
       }
     })
   }
