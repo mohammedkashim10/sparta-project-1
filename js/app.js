@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
           homebtn.setAttribute('id', 'homebtn');
           document.body.appendChild(homebtn);
           homebtn.addEventListener('click', (event) => {
-            window.location = window.location; // Reloads the window without refreshing the browser lel
+            window.location = window.location; // Reloads the window without refreshing the browser
           })
           const restartbtn = document.createElement('button');
           restartbtn.innerHTML = 'Restart';
