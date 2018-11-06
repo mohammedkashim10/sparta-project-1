@@ -319,7 +319,7 @@ button:focus {
   cursor: pointer;
 }
 
-#homebtn {
+#homebtn, #restartbtn {
   font-size: 30px;
   border-radius: 10px;
   width: 200px;
@@ -328,9 +328,13 @@ button:focus {
   box-shadow: 0 8px rgb(50, 50, 50);
 }
 
-#homebtn:hover {background-color: rgb(205, 205, 205)}
+#homebtn {
+  margin-right: 30px;
+}
 
-#homebtn:active {
+#homebtn:hover, #restartbtn:hover {background-color: rgb(205, 205, 205)}
+
+#homebtn:active, #restartbtn:active {
   background-color: rgb(205, 205, 205);
   box-shadow: 0 4px rgb(50, 50, 50);
   transform: translateY(4px);

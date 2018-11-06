@@ -83,30 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     playComplete(); // Play game complete sound
   }
 
-  // Creating the function for the timer
-  const timer = () => {
-    const timerEl = document.getElementById('timer');
-    timerEl.innerHTML = 'Time remaining: 20s'; // Setting an innerHTML at 20 and starting the countdown from 19 so there is no delay of waiting for the element to appear when the function is called
-    timerEl.style.display = 'block';
-    let currentTime = 19;
-    var interval = setInterval(countdown,1000)
-    function countdown(){
-      timerEl.innerHTML = `Time remaining: ${currentTime}s`;
-      currentTime--;
-      if (currentTime === -1) {
-        clearInterval(interval); // Stop the countdown when time runs out
-        end(); // End function displays the modal
-        const homebtn = document.createElement('button');
-        homebtn.innerHTML = 'Home';
-        homebtn.setAttribute('id', 'homebtn');
-        document.body.appendChild(homebtn);
-        homebtn.addEventListener('click', (event) => {
-          window.location = window.location; // Reloads the window without refreshing the browser
-        })
-      }
-    }
-  }
-
   // Creating the elements to play the game
   const setElements = () => {
     const select = document.createElement('h1');
@@ -136,6 +112,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const liveScore = document.getElementById('liveScore');
     liveScore.innerHTML = `Score: ${scoreArray.length}`;
     liveScore.style.display = 'block';
+
+    const timer = () => {
+      const timerEl = document.getElementById('timer');
+      timerEl.innerHTML = 'Time remaining: 20s'; // Setting an innerHTML at 20 and starting the countdown from 19 so there is no delay of waiting for the element to appear when the function is called
+      timerEl.style.display = 'block';
+      let currentTime = 19;
+      var interval = setInterval(countdown,1000)
+      function countdown(){
+        timerEl.innerHTML = `Time remaining: ${currentTime}s`;
+        currentTime--;
+        if (currentTime === -1) {
+          clearInterval(interval); // Stop the countdown when time runs out
+          end(); // End function displays the modal
+          const homebtn = document.createElement('button');
+          homebtn.innerHTML = 'Home';
+          homebtn.setAttribute('id', 'homebtn');
+          document.body.appendChild(homebtn);
+          homebtn.addEventListener('click', (event) => {
+            window.location = window.location; // Reloads the window without refreshing the browser
+          })
+          const restartbtn = document.createElement('button');
+          restartbtn.innerHTML = 'Restart';
+          restartbtn.setAttribute('id', 'restartbtn');
+          document.body.appendChild(restartbtn);
+          restartbtn.addEventListener('click', (event) => {
+            select.style.display = 'none';
+            scoreArray.length = 0;
+            homebtn.style.display = 'none';
+            restartbtn.style.display = 'none';
+            setElements();
+          })
+          color.style.display = 'none';
+          fill.style.display = 'none';
+          text.style.display = 'none';
+          select.innerHTML = `Your score was ${scoreArray.length}. Play again to try and beat it!`;
+          select.style.fontSize = '30px';
+        }
+      }
+    }
+    timer();
 
     // Click event for when the button corresponding to the word's text is clicked
     text.addEventListener('click', () => {
@@ -201,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Adding a click event to the play button i.e. starts the game
   play.addEventListener('click', (event) => {
-    timer();
     playbtn();
     setElements();
   })
