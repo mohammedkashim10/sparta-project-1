@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, false);
   backgroundSound.play();
 
-  // Getting the correct, incorrect, and time up sounds
+  // Getting the correct, incorrect, and game over sounds
   var x = document.getElementById("correctSound");
   function playCorrect() {
     x.play();
