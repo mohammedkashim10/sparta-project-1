@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
         scoreArray.push("score"); // Puts a component in the array
-        liveScore.innerHTML = `Score: ${scoreArray.length}`; // Score appears as the length of the array i.e. number of components (which increases with every correct answer)
+        liveScore.innerHTML = `Score: ${scoreArray.length}`; // Score appears as the length of the array (which increases with every correct answer)
         playCorrect(); // "Correct answer" sound
       } else if (select.innerHTML == "Select color") {
         select.innerHTML = `Select ${option}`; // Creates a new task for the next round (i.e. select text or select color)
@@ -181,6 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } // The if statement prevents the text and colour being the same by making the text "white" (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
+        scoreArray.pop(); // Removes a component in the array
+        liveScore.innerHTML = `Score: ${scoreArray.length}`; // Score appears as the length of the array (which decreases with every incorrect answer)
         playIncorrect(); // "Incorrect answer" sound
       }
     })
@@ -211,6 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } // The if statement prevents the text and colour being the same by making the text "white" (the colour white is not in the array of colours)
         text.innerHTML = color.innerHTML;
         fill.innerHTML = color.style.color;
+        scoreArray.pop(); // Removes a component in the array
+        liveScore.innerHTML = `Score: ${scoreArray.length}`; // Score appears as the length of the array (which decreases with every incorrect answer)
         playIncorrect(); // "Incorrect answer" sound
       }
     })
