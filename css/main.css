@@ -203,6 +203,10 @@ button:focus {
   cursor: pointer;
 }
 
+#beware {
+  font-weight: bold;
+}
+
 #timer {
   display: none; /* Initially hiding the timer */
   margin-left: -1050px;
