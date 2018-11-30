@@ -204,6 +204,7 @@ button:focus {
 }
 
 #beware {
+  color: red;
   font-weight: bold;
 }
 
